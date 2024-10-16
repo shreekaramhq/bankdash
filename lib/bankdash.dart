@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'navigation/app_router.dart';
+
 class BankDash extends StatelessWidget {
   const BankDash({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('BankDash'),
-        ),
-        body: const Center(
-          child: Text('Welcome to BankDash'),
-        ),
-      ),
+      routerConfig: appRouter,
     );
   }
 }
