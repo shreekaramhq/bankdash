@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+import 'screens/accounts_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/widgets/home_app_bar.dart';
+
+class OverviewPage extends StatelessWidget {
+  const OverviewPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text('Home Screen'),
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).go('/second');
-              },
-              child: const Text('Go to Second Screen'),
-            ),
-          ],
-        ),
+      appBar: HomeAppBar(
+        title: "Overview",
+        onMenuTap: () {
+          Scaffold.of(context).openDrawer();
+        },
+      ),
+      body: const Center(
+        child: Text('Overview'),
       ),
     );
   }
@@ -28,29 +26,20 @@ class HomeScreen extends StatelessWidget {
 
 final appRouter = GoRouter(
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
-    GoRoute(
-      path: '/second',
-      builder: (context, state) => Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text('Second Screen'),
-              ElevatedButton(
-                onPressed: () {
-                  GoRouter.of(context).go('/');
-                },
-                child: const Text('Go to Home Screen'),
-              ),
-            ],
-          ),
+    ShellRoute(
+      builder: (context, state, child) {
+        return HomeScreen(child: child);
+      },
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const OverviewPage(),
         ),
-      ),
+        GoRoute(
+          path: '/accounts',
+          builder: (context, state) => const AccountsScreen(),
+        ),
+      ],
     ),
   ],
 );
