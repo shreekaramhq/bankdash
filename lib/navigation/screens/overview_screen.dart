@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:bankdash/modules/cards/barrel.dart';
+
 import 'widgets/home_app_bar.dart';
 
 class OverviewScreen extends StatelessWidget {
@@ -14,8 +16,12 @@ class OverviewScreen extends StatelessWidget {
           Scaffold.of(context).openDrawer();
         },
       ),
-      body: const Center(
-        child: Text('Overview'),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            CardsSlider(),
+          ],
+        ),
       ),
     );
   }

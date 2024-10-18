@@ -1,28 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:bankdash/modules/cards/presentation/cards_list_view.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/accounts_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/widgets/home_app_bar.dart';
-
-class OverviewPage extends StatelessWidget {
-  const OverviewPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: HomeAppBar(
-        title: "Overview",
-        onMenuTap: () {
-          Scaffold.of(context).openDrawer();
-        },
-      ),
-      body: const Center(
-        child: Text('Overview'),
-      ),
-    );
-  }
-}
+import 'screens/overview_screen.dart';
 
 final appRouter = GoRouter(
   routes: [
@@ -33,13 +14,17 @@ final appRouter = GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const OverviewPage(),
+          builder: (context, state) => const OverviewScreen(),
         ),
         GoRoute(
           path: '/accounts',
           builder: (context, state) => const AccountsScreen(),
         ),
       ],
+    ),
+    GoRoute(
+      path: '/cards',
+      builder: (context, state) => const CardsListView(),
     ),
   ],
 );
