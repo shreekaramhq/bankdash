@@ -20,6 +20,7 @@ class RecentTransactions extends StatelessWidget {
         ),
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
           itemCount: 3,
           shrinkWrap: true,
           itemBuilder: (context, index) {
