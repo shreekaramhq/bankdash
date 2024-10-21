@@ -33,7 +33,12 @@ class OverviewScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               height: 300,
               child: const WeeklyActivity(),
-            )
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: 300,
+              child: const ExpenseStatistics(),
+            ),
           ],
         ),
       ),
