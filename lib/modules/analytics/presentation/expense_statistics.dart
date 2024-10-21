@@ -46,17 +46,22 @@ class ExpenseStatistics extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        Wrap(
-          direction: Axis.horizontal,
-          children: expensesList.map(
-            (expense) {
-              return Indicator(
-                color: expense.category.color,
-                text: expense.category.title,
-                isSquare: true,
-              );
-            },
-          ).toList(),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: expensesList.map(
+              (expense) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: Indicator(
+                    color: expense.category.color,
+                    text: expense.category.title,
+                    isSquare: true,
+                  ),
+                );
+              },
+            ).toList(),
+          ),
         ),
         const SizedBox(
           height: 18,
