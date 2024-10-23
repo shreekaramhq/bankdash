@@ -18,16 +18,26 @@ class RecentTransactions extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.zero,
-          itemCount: 3,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            final transaction = transactionList[index];
+        const SizedBox(height: 12),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
+              itemCount: 3,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                final transaction = transactionList[index];
 
-            return TransactionCard(transaction: transaction);
-          },
+                return TransactionCard(transaction: transaction);
+              },
+            ),
+          ),
         ),
       ],
     );
