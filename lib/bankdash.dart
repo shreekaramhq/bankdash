@@ -11,6 +11,11 @@ class BankDash extends StatelessWidget {
     return MaterialApp.router(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        drawerTheme: const DrawerThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+          ),
+        ),
       ),
       routerConfig: appRouter,
       builder: (context, child) => ResponsiveBreakpoints.builder(
@@ -18,7 +23,8 @@ class BankDash extends StatelessWidget {
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
           const Breakpoint(start: 451, end: 800, name: TABLET),
-          const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+          const Breakpoint(start: 801, end: 1200, name: "SMALL_DESKTOP"),
+          const Breakpoint(start: 1201, end: 1920, name: DESKTOP),
           const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),

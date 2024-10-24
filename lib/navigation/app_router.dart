@@ -14,11 +14,15 @@ final appRouter = GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const OverviewScreen(),
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: OverviewScreen(),
+          ),
         ),
         GoRoute(
           path: '/accounts',
-          builder: (context, state) => const AccountsScreen(),
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: AccountsScreen(),
+          ),
         ),
       ],
     ),

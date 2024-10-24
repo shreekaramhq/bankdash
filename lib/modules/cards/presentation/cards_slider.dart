@@ -39,9 +39,10 @@ class CardsSlider extends StatelessWidget {
               viewportFraction: ResponsiveValue(
                 context,
                 conditionalValues: [
-                  const Condition.smallerThan(breakpoint: 400, value: 0.85),
-                  const Condition.largerThan(breakpoint: 400, value: 0.5),
+                  const Condition.smallerThan(breakpoint: 540, value: 0.85),
+                  const Condition.largerThan(breakpoint: 540, value: 0.5),
                 ],
+                defaultValue: 0.85,
               ).value,
             ),
             itemCount: math.min(cardsList.length, 3),

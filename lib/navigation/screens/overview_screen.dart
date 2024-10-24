@@ -60,23 +60,19 @@ class OverviewScreen extends StatelessWidget {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: LayoutGrid(
-        // ASCII-art named areas 🔥
         areas: '''
           cards cards  recent
           weekly weekly statistics
           history history blank
         ''',
-        // Concise track sizing extension methods 🔥
         columnSizes: [1.fr, 1.fr, 1.fr],
         rowSizes: [
           300.px,
           auto,
           auto,
         ],
-        // Column and row gaps! 🔥
         columnGap: 24,
         rowGap: 24,
-        // Handy grid placement extension methods on Widget 🔥
         children: [
           const CardsSlider().inGridArea('cards'),
           const RecentTransactions().inGridArea('recent'),
