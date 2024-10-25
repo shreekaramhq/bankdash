@@ -1,6 +1,6 @@
 import 'package:bankdash/modules/transactions/domain/transaction.dart';
 
-final transactionList = [
+final transactionsList = [
   Transaction(
     id: "1",
     title: "Salary",
