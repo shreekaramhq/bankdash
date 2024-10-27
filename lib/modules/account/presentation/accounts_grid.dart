@@ -8,6 +8,7 @@ class AccountsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
+      physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(vertical: 20),
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
