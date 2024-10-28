@@ -44,6 +44,13 @@ class AccountsScreen extends StatelessWidget {
                 child: const DebitCreditOverview(),
               ),
             ),
+            SliverToBoxAdapter(
+              child: Container(
+                margin: const EdgeInsets.only(top: 30),
+                height: 300,
+                child: const InvoicesSent(),
+              ),
+            ),
             const SliverPadding(padding: EdgeInsets.only(bottom: 100)),
           ],
         ),
