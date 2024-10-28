@@ -1,10 +1,11 @@
 import 'package:bankdash/modules/cards/presentation/cards_list_view.dart';
-import 'package:bankdash/navigation/screens/transactions_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/accounts_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/investments_screen.dart';
 import 'screens/overview_screen.dart';
+import 'screens/transactions_screen.dart';
 
 final appRouter = GoRouter(
   routes: [
@@ -29,6 +30,12 @@ final appRouter = GoRouter(
           path: '/accounts',
           pageBuilder: (context, state) => const NoTransitionPage(
             child: AccountsScreen(),
+          ),
+        ),
+        GoRoute(
+          path: '/investments',
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: InvestmentsScreen(),
           ),
         ),
       ],
