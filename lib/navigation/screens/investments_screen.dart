@@ -17,7 +17,7 @@ class InvestmentsScreen extends StatelessWidget {
         },
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [];
@@ -25,6 +25,9 @@ class InvestmentsScreen extends StatelessWidget {
           body: const CustomScrollView(
             slivers: [
               InvestmentTiles(),
+              SliverToBoxAdapter(child: SizedBox(height: 40)),
+              SliverToBoxAdapter(child: MonthlyRevenue()),
+              SliverToBoxAdapter(child: SizedBox(height: 60)),
             ],
           ),
         ),
