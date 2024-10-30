@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:bankdash/modules/investments/barrel.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'widgets/home_app_bar.dart';
 
 class InvestmentsScreen extends StatelessWidget {
   const InvestmentsScreen({super.key});
+
+  final revenue = const MonthlyRevenue();
+
+  final total = const Text("Total Investmented Amount");
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +27,37 @@ class InvestmentsScreen extends StatelessWidget {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [];
           },
-          body: const CustomScrollView(
+          body: CustomScrollView(
             slivers: [
-              InvestmentTiles(),
-              SliverToBoxAdapter(child: SizedBox(height: 40)),
-              SliverToBoxAdapter(child: MonthlyRevenue()),
-              SliverToBoxAdapter(child: SizedBox(height: 60)),
+              const SliverToBoxAdapter(child: InvestmentTiles()),
+              const SliverToBoxAdapter(child: SizedBox(height: 40)),
+              SliverToBoxAdapter(
+                child: ResponsiveRowColumn(
+                  columnCrossAxisAlignment: CrossAxisAlignment.start,
+                  layout: ResponsiveValue(
+                    context,
+                    conditionalValues: [
+                      const Condition.smallerThan(
+                          name: 'SMALL_DESKTOP',
+                          value: ResponsiveRowColumnType.COLUMN),
+                    ],
+                    defaultValue: ResponsiveRowColumnType.ROW,
+                  ).value,
+                  children: [
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      rowFit: FlexFit.tight,
+                      child: revenue,
+                    ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      rowFit: FlexFit.tight,
+                      child: total,
+                    ),
+                  ],
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 60)),
             ],
           ),
         ),
