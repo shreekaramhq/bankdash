@@ -9,7 +9,7 @@ class InvestmentsScreen extends StatelessWidget {
 
   final revenue = const MonthlyRevenue();
 
-  final total = const Text("Total Investmented Amount");
+  final total = const YearlyTotal();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,11 @@ class InvestmentsScreen extends StatelessWidget {
           },
           body: CustomScrollView(
             slivers: [
-              const SliverToBoxAdapter(child: InvestmentTiles()),
+              const SliverToBoxAdapter(
+                  child: Padding(
+                padding: EdgeInsets.only(top: 30),
+                child: InvestmentTiles(),
+              )),
               const SliverToBoxAdapter(child: SizedBox(height: 40)),
               SliverToBoxAdapter(
                 child: ResponsiveRowColumn(
@@ -43,21 +47,24 @@ class InvestmentsScreen extends StatelessWidget {
                     ],
                     defaultValue: ResponsiveRowColumnType.ROW,
                   ).value,
+                  columnSpacing: 20,
                   children: [
-                    ResponsiveRowColumnItem(
-                      rowFlex: 1,
-                      rowFit: FlexFit.tight,
-                      child: revenue,
-                    ),
                     ResponsiveRowColumnItem(
                       rowFlex: 1,
                       rowFit: FlexFit.tight,
                       child: total,
                     ),
+                    ResponsiveRowColumnItem(
+                      rowFlex: 1,
+                      rowFit: FlexFit.tight,
+                      child: revenue,
+                    ),
                   ],
                 ),
               ),
-              const SliverToBoxAdapter(child: SizedBox(height: 60)),
+              const SliverToBoxAdapter(child: SizedBox(height: 40)),
+              const SliverToBoxAdapter(child: MyInvestments()),
+              const SliverToBoxAdapter(child: SizedBox(height: 80)),
             ],
           ),
         ),
