@@ -64,6 +64,8 @@ class InvestmentsScreen extends StatelessWidget {
               ),
               const SliverToBoxAdapter(child: SizedBox(height: 40)),
               const SliverToBoxAdapter(child: MyInvestments()),
+              const SliverToBoxAdapter(child: SizedBox(height: 40)),
+              const SliverToBoxAdapter(child: TrendingStocks()),
               const SliverToBoxAdapter(child: SizedBox(height: 80)),
             ],
           ),
