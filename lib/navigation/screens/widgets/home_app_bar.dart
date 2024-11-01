@@ -11,6 +11,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
+      backgroundColor: Colors.white,
       leading: ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)
           ? InkWell(
               onTap: onMenuTap,

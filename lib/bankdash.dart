@@ -16,6 +16,7 @@ class BankDash extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(0)),
           ),
         ),
+        scaffoldBackgroundColor: const Color(0xFFF5F7FA),
       ),
       routerConfig: appRouter,
       builder: (context, child) => ResponsiveBreakpoints.builder(
