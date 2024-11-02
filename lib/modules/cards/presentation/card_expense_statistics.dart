@@ -74,6 +74,7 @@ class CardExpenseStatistics extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Text(
           "Card Expense Statistics",
@@ -83,64 +84,75 @@ class CardExpenseStatistics extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        Expanded(
-          child: Center(
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: PieChart(
-                PieChartData(
-                  borderData: FlBorderData(
-                    show: false,
+        Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(18)),
+            color: Colors.white,
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Colors.white,
+                  child: AspectRatio(
+                    aspectRatio: 1.5,
+                    child: PieChart(
+                      PieChartData(
+                        borderData: FlBorderData(
+                          show: false,
+                        ),
+                        sectionsSpace: 0,
+                        centerSpaceRadius: 40,
+                        sections: showingSections(),
+                        startDegreeOffset: 160,
+                      ),
+                    ),
                   ),
-                  sectionsSpace: 0,
-                  centerSpaceRadius: 40,
-                  sections: showingSections(),
-                  startDegreeOffset: 160,
                 ),
-              ),
+                const Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Indicator(
+                          color: Colors.blue,
+                          text: 'DBL Bank',
+                          isSquare: false,
+                        ),
+                        SizedBox(width: 20),
+                        Indicator(
+                          color: Colors.pinkAccent,
+                          text: 'BRC Bank',
+                          isSquare: false,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Indicator(
+                          color: Colors.greenAccent,
+                          text: 'ABM Bank',
+                          isSquare: false,
+                        ),
+                        SizedBox(width: 20),
+                        Indicator(
+                          color: Colors.orangeAccent,
+                          text: 'MCP Bank',
+                          isSquare: false,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ),
-        const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Indicator(
-                  color: Colors.blue,
-                  text: 'DBL Bank',
-                  isSquare: false,
-                ),
-                SizedBox(width: 20),
-                Indicator(
-                  color: Colors.pinkAccent,
-                  text: 'BRC Bank',
-                  isSquare: false,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Indicator(
-                  color: Colors.greenAccent,
-                  text: 'ABM Bank',
-                  isSquare: false,
-                ),
-                SizedBox(width: 20),
-                Indicator(
-                  color: Colors.orangeAccent,
-                  text: 'MCP Bank',
-                  isSquare: false,
-                ),
-              ],
-            ),
-          ],
         ),
       ],
     );
