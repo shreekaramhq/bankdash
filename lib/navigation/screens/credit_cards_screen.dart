@@ -45,10 +45,18 @@ class CreditCardsScreen extends StatelessWidget {
             ),
           ];
         },
-        body: const CustomScrollView(
+        body: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: CardsViewer(),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                margin:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                height: 300,
+                child: const CardExpenseStatistics(),
+              ),
             ),
           ],
         ),
