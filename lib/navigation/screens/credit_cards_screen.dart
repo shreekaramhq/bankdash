@@ -65,6 +65,15 @@ class CreditCardsScreen extends StatelessWidget {
                 child: const CardList(),
               ),
             ),
+            SliverToBoxAdapter(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: const NewCardForm(),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 100),
+            ),
           ],
         ),
       ),
