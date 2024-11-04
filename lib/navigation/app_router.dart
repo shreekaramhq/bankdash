@@ -1,3 +1,4 @@
+import 'package:bankdash/navigation/screens/loan_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:bankdash/modules/cards/barrel.dart';
@@ -43,6 +44,12 @@ final appRouter = GoRouter(
           path: '/credit-cards',
           pageBuilder: (context, state) => const NoTransitionPage(
             child: CreditCardsScreen(),
+          ),
+        ),
+        GoRoute(
+          path: '/loans',
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: LoanScreen(),
           ),
         ),
       ],
