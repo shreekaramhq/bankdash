@@ -46,6 +46,17 @@ class LoanScreen extends StatelessWidget {
         body: const CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: LoanCards()),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 20,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ActiveLoansOverview(),
+              ),
+            ),
           ],
         ),
       ),
