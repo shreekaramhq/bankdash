@@ -25,6 +25,14 @@ class CreditCardsScreen extends StatelessWidget {
                   Scaffold.of(context).openDrawer();
                 },
               ),
+              actions: const [
+                Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: CircleAvatar(
+                    child: Icon(Icons.person),
+                  ),
+                ),
+              ],
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(100),
                 child: Container(

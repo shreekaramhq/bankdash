@@ -1,5 +1,6 @@
-import 'package:bankdash/modules/loans/barrel.dart';
 import 'package:flutter/material.dart';
+
+import 'package:bankdash/modules/loans/barrel.dart';
 
 class LoanScreen extends StatelessWidget {
   const LoanScreen({super.key});
@@ -23,6 +24,14 @@ class LoanScreen extends StatelessWidget {
                   Scaffold.of(context).openDrawer();
                 },
               ),
+              actions: const [
+                Padding(
+                  padding: EdgeInsets.only(right: 16.0),
+                  child: CircleAvatar(
+                    child: Icon(Icons.person),
+                  ),
+                ),
+              ],
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(100),
                 child: Container(

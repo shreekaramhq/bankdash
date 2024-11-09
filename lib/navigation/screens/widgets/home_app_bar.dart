@@ -18,6 +18,14 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: const Icon(Icons.menu),
             )
           : null,
+      actions: const [
+        Padding(
+          padding: EdgeInsets.only(right: 16.0),
+          child: CircleAvatar(
+            child: Icon(Icons.person),
+          ),
+        ),
+      ],
     );
   }
 
