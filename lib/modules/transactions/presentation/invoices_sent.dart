@@ -26,6 +26,7 @@ class InvoicesSent extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             child: ListView.builder(
+              padding: EdgeInsets.zero,
               physics: const ClampingScrollPhysics(),
               shrinkWrap: true,
               itemCount: invoicesList.length,

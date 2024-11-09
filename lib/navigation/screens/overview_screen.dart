@@ -13,13 +13,12 @@ class OverviewScreen extends StatelessWidget {
   const OverviewScreen({super.key});
 
   renderMobile() {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(bottom: 100),
+    return SliverToBoxAdapter(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 250,
+            height: 300,
             padding: const EdgeInsets.only(left: 20),
             child: const CardsSlider(),
           ),
@@ -57,8 +56,7 @@ class OverviewScreen extends StatelessWidget {
   }
 
   renderDesktop() {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    return SliverToBoxAdapter(
       child: LayoutGrid(
         areas: '''
           cards cards  recent
@@ -101,15 +99,25 @@ class OverviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
-      appBar: HomeAppBar(
-        title: "Overview",
-        onMenuTap: () {
-          Scaffold.of(context).openDrawer();
+      body: NestedScrollView(
+        headerSliverBuilder: (ctx, innerBoxIsScrolled) {
+          return [
+            HomeAppBar(
+              onMenuTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+              title: "Overview",
+            )
+          ];
         },
+        body: CustomScrollView(
+          slivers: [
+            ResponsiveBreakpoints.of(context).equals(DESKTOP)
+                ? renderDesktop()
+                : renderMobile()
+          ],
+        ),
       ),
-      body: ResponsiveBreakpoints.of(context).equals(DESKTOP)
-          ? renderDesktop()
-          : renderMobile(),
     );
   }
 }

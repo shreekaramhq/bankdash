@@ -40,14 +40,7 @@ class RecentTransactions extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          child: TransactionsList(transactionList: transactionsList),
-        ),
+        TransactionsList(transactionList: transactionsList),
       ],
     );
   }

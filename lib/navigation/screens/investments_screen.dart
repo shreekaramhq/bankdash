@@ -15,19 +15,20 @@ class InvestmentsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FA),
-      appBar: HomeAppBar(
-        title: "Investments",
-        onMenuTap: () {
-          Scaffold.of(context).openDrawer();
+      body: NestedScrollView(
+        headerSliverBuilder: (ctx, innerBoxIsScrolled) {
+          return [
+            HomeAppBar(
+              title: "Investments",
+              onMenuTap: () {
+                Scaffold.of(context).openDrawer();
+              },
+            )
+          ];
         },
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [];
-          },
-          body: CustomScrollView(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: CustomScrollView(
             slivers: [
               const SliverToBoxAdapter(
                   child: Padding(
