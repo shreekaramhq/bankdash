@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  static const double height = 56.0;
+  static const double height = 70.0;
   final String title;
   final Function() onMenuTap;
   const HomeAppBar({super.key, required this.onMenuTap, required this.title});
@@ -31,10 +31,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
+        preferredSize: const Size(double.infinity, 100),
         child: Container(
           color: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           child: const SearchBar(
             elevation: WidgetStatePropertyAll(0),
             backgroundColor: WidgetStatePropertyAll(Color(0xFFF5F7FA)),

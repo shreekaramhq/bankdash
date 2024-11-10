@@ -1,5 +1,6 @@
 import 'package:bankdash/navigation/screens/loan_screen.dart';
 import 'package:bankdash/navigation/screens/services_screen.dart';
+import 'package:bankdash/navigation/screens/settings_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:bankdash/modules/cards/barrel.dart';
@@ -57,6 +58,12 @@ final appRouter = GoRouter(
           path: '/services',
           pageBuilder: (context, state) => const NoTransitionPage(
             child: ServicesScreen(),
+          ),
+        ),
+        GoRoute(
+          path: '/settings',
+          pageBuilder: (context, state) => const NoTransitionPage(
+            child: SettingsScreen(),
           ),
         ),
       ],
