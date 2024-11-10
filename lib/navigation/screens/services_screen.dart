@@ -29,6 +29,10 @@ class ServicesScreen extends StatelessWidget {
                 height: 20,
               ),
             ),
+            SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              sliver: SliverToBoxAdapter(child: ServicesList()),
+            ),
           ],
         ),
       ),
