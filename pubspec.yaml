@@ -17,6 +17,7 @@ dependencies:
   fl_chart: ^0.69.0
   responsive_framework: ^1.5.1
   flutter_layout_grid: ^2.0.7
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

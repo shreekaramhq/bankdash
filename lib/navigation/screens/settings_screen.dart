@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:bankdash/modules/settings/barrel.dart';
+
 import 'widgets/home_app_bar.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -44,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
                 SliverFillRemaining(
                   child: TabBarView(
                     children: [
-                      Text("Edit profile"),
+                      ProfileView(),
                       Text("Preference"),
                       Text("Security"),
                     ],
