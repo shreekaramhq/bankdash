@@ -25,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
           },
           body: Container(
             margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.all(16),
+            // padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -47,8 +47,8 @@ class SettingsScreen extends StatelessWidget {
                   child: TabBarView(
                     children: [
                       ProfileView(),
-                      Text("Preference"),
-                      Text("Security"),
+                      PreferenceView(),
+                      SecurityView(),
                     ],
                   ),
                 )

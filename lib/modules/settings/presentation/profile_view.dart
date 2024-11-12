@@ -77,7 +77,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 24),
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
       child: Column(
         children: [
           CircleAvatar(
