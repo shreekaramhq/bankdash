@@ -54,18 +54,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (ResponsiveBreakpoints.of(context).smallerThan(DESKTOP)) {
-      return Scaffold(
-        body: child,
-        drawer: const SideDrawer(),
+    if (ResponsiveBreakpoints.of(context).largerOrEqualTo(DESKTOP)) {
+      return Row(
+        children: [
+          const SideDrawer(),
+          Expanded(child: Scaffold(body: child)),
+        ],
       );
     }
 
-    return Row(
-      children: [
-        const SideDrawer(),
-        Expanded(child: Scaffold(body: child)),
-      ],
+    return Scaffold(
+      body: child,
+      drawer: const SideDrawer(),
     );
   }
 }

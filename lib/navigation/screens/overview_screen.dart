@@ -18,7 +18,7 @@ class OverviewScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 300,
+            height: 260,
             padding: const EdgeInsets.only(left: 20),
             child: const CardsSlider(),
           ),
@@ -111,11 +111,7 @@ class OverviewScreen extends StatelessWidget {
           ];
         },
         body: CustomScrollView(
-          slivers: [
-            ResponsiveBreakpoints.of(context).equals(DESKTOP)
-                ? renderDesktop()
-                : renderMobile()
-          ],
+          slivers: [renderMobile()],
         ),
       ),
     );
